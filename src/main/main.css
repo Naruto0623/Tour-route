@@ -1,0 +1,46 @@
+html, body, h4, div, p, ul, li, select, input, option, textarea {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+}
+
+select, option, input, textarea {
+  border: none;
+  outline: none;
+  background-color: rgba(0,0,0,0);
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  font-size: 62.5%;
+  background-color: #f0f0ff;
+}
+
+#box {
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  line-height: 2rem;
+  overflow: hidden;
+}
+
+header {
+  height: 3.4rem;
+}
+
+article {
+  flex: 1;
+}
+
+.fontB {
+  font-size: 2.5rem;
+}
+
+h4 {
+  margin: 0;
+  padding: 0;
+}
