@@ -501,6 +501,21 @@ let listJson = [
   }
 
 ];
+let selectOption = [
+  {
+    routeid: 10,
+    routename: '北京——天津'
+  },
+  {
+    routeid: 20,
+    routename: '北京——上海'
+  },
+  {
+    routeid: 30,
+    routename: '北京——山东'
+  }
+];
 export default {
-  listJson
+  listJson,
+  selectOption
 }

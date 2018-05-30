@@ -3,9 +3,8 @@
     <div class="search">
       <div>
         <select name="" id="" v-model="search.routename" class="search-select">
-        <option value="">请选择线路</option>
-        <option value="">北京——天津</option>
-        <option value="">北京——上海</option>
+          <option value="">请选择线路</option>
+          <option v-for="(item,key) in routeList" :key="key" :value="item.routeid">{{ item.routename }}</option>
       </select>
       </div>
       <p style="width: 0.5rem"></p>
@@ -46,6 +45,7 @@
     name: 'HelloWorld',
     data(){
       return {
+        routeList: [],
         startTime: new Date("2018"),
         listData: {},
         loading: false,
@@ -89,11 +89,24 @@
           }
         });
       },
+      //获取线路下拉框
+      pullrouteList() {
+        let url = '';
+        this.routeList = res.selectOption;
+        axios.get(url).then(res =>{
+          if (res.data.code == '200') {
+            this.listData = res.data.listdata;
+            this.loading = false;
+          }
+        });
+      },
       //点击进入详情
       listDetail( item ){
         this.$router.push({
           name: 'detail',
-          params: item
+          params: {
+            info: item
+          }
         });
       },
       //打开时间选择器
@@ -102,7 +115,7 @@
       }
     },
     created(){
-
+      this.pullrouteList();
     }
   }
 </script>

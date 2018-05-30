@@ -4,7 +4,7 @@
       <mt-header fixed :title="$route.meta.title">
         <mt-button v-if="$route.meta.back" @click.native="callBack" icon="back" slot="left">返回</mt-button>
         <mt-button v-if="$route.meta.back" @click.native="callBack" slot="right">保存</mt-button>
-        <mt-button v-if="$route.meta.add" @click.native="addList" slot="right"><b class="fontB">+</b></mt-button>
+        <mt-button v-if="$route.meta.add" @click.native="addList" slot="right"><span class="fontB">+</span></mt-button>
       </mt-header>
     </header>
     <article>
