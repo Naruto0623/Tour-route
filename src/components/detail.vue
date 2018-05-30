@@ -76,6 +76,18 @@
     <div class="border-botm">
       <div class="image-upload">
         <div style="width: 30%">
+          <span class="mint-cell-text">用途：</span>
+        </div>
+        <div style="display: flex;flex-wrap: wrap;">
+          <span v-for="(item,key) in checkList" :key="key" style="width: 6rem">
+            <input type="checkbox" :value="item.useid">{{ item.usename }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="border-botm">
+      <div class="image-upload">
+        <div style="width: 30%">
           <span class="mint-cell-text">联系人名片：</span>
         </div>
         <div class="" style="width: 60%">
@@ -120,6 +132,26 @@
     name: "detail",
     data(){
       return {
+        options: [
+          {
+            label: 'disabled option',
+            value: 'valueF',
+            disabled: true
+          },
+          {
+            label: 'checked disabled',
+            value: 'valueE',
+            disabled: true
+          },
+          {
+            label: 'optionA',
+            value: 'valueA'
+          },
+          {
+            label: 'optionB',
+            value: 'valueB'
+          }
+        ],
         //名片图片base64
         cardUploadData: [],
         //照片图片base64
@@ -130,6 +162,8 @@
         uploadPhoto: [],
         //线路下拉框
         routeList: [],
+        //用途复选框
+        checkList: [],
         info: {
           //景点名称
           sitename: '',
@@ -222,6 +256,16 @@
           x.innerHTML = "Geolocation is not supported by this browser.";
         }
       },
+      //获取复选框值
+      pullcheckList() {
+        let url = '';
+        this.checkList = res.checkOption;
+        axios.get(url).then(res =>{
+          if (res.data.code == '200') {
+            this.checkList = res.data.selectOption;
+          }
+        });
+      },
       //获取线路下拉框
       pullrouteList(){
         let url = '';
@@ -235,6 +279,7 @@
     },
     created(){
       this.pullrouteList();
+      this.pullcheckList();
       if (this.$route.params.info) {
         this.info = this.$route.params.info;
       } else {

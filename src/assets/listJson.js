@@ -515,7 +515,34 @@ let selectOption = [
     routename: '北京——山东'
   }
 ];
+let checkOption = [
+  {
+    useid: 10,
+    usename: '亲子游'
+  },
+  {
+    useid: 20,
+    usename: '团建'
+  },
+  {
+    useid: 30,
+    usename: '旅行结婚'
+  },
+  {
+    useid: 10,
+    usename: '亲子游'
+  },
+  {
+    useid: 20,
+    usename: '团建'
+  },
+  {
+    useid: 30,
+    usename: '旅行结婚'
+  }
+];
 export default {
   listJson,
-  selectOption
+  selectOption,
+  checkOption
 }
